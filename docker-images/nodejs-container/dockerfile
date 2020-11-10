@@ -1,0 +1,27 @@
+# importando a versão mais atual do Node
+FROM node:alpine
+
+#descrições da imagem
+LABEL version="1.0.0" description="Disponibilizando site com NGINX" maintainer="Iago Ferreira"
+
+# diretório dentro da imagem que será copiado os arquivos
+WORKDIR /usr/app
+
+# copiando os arquivos da página atual para dentro da imagem
+COPY package*.json ./
+
+# rodando o npm install dentro da imagem
+RUN npm install
+
+# copiando os arquivos restantes para dentro do container
+COPY . .
+
+# expondo a porta 3000
+EXPOSE 3000
+
+# comandos para iniciar a aplicação
+CMD [ "yarn", "start"]
+
+
+# É possível utilizar ENV para definir variáveis de ambiente
+# ENV APP_HOME=http://localhost:3333/home

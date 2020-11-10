@@ -1,0 +1,13 @@
+version: "3"
+services:
+  app:
+  # pasta em que se encontra o dockerfile
+    build: .
+  # o comando que será executado quando a aplicação subir
+    command: yarn start
+  # criando uma bridge para as portas
+    ports:
+      - "3000:3333"
+  # criando uma bridge para os arquivos
+    volumes:
+      - .:urs/app
