@@ -104,3 +104,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export NVM_DIR="$HOME/.nvm" # or wherever you've chosen to install it
+source "$NVM_DIR/nvm.sh"
+
+# Add go to path
+export PATH=$PATH:/usr/local/go/bin
